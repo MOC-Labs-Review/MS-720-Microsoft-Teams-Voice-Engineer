@@ -248,7 +248,7 @@ In this task, we will create and license a Microsoft Teams Room device account u
     Update-Module MSOnline
     ```
 
-15. Make sure you have the latest Exchange Online PowerShell modules installed with the following cmdlet. If you receive an **Untrusted repository** prompt, select **Yes to all**.
+15. Make sure you have the latest Exchange Online PowerShell modules installed with the following cmdlet. If you receive an **Untrusted repository** prompt, select **Yes to all**, if you receive a **module not found error**, then change the command to **Install-Module ExchangeOnlineManagement**.
 
     ```powershell
     Update-Module ExchangeOnlineManagement
@@ -641,13 +641,13 @@ You have successfully installed AudioCodes Syslog viewer which is also a listeni
 2. At the command prompt use netstat to find the processes listening on port 514:
 
     ```console
-    netstat -na | find "514" |
+    netstat -na | find "514" 
     ```
 
 3. At the top of the output you will see This is the process listening on UDP 514:
 
     ```console
-    UDP 0.0.0.0:514 *.* |
+    UDP 0.0.0.0:514 *.* 
     ```
 
 4. Leave the Syslog viewer running.
@@ -655,7 +655,7 @@ You have successfully installed AudioCodes Syslog viewer which is also a listeni
 5. To configure the AudioCodes SBC to point to the Syslog server, we need to know the server public IP address, still in the command line, type the following.
 
     ```console
-    Ipconfig |
+    Ipconfig 
     ```
 
 6. In the results, note down the Ethernet adapter External IPv4 Address.
@@ -663,7 +663,7 @@ You have successfully installed AudioCodes Syslog viewer which is also a listeni
 7. Since windows firewall is running on the server Public interface, we need to open 514 UDP on the firewall, by running the following command:
 
     ```console
-    netsh advfirewall firewall add rule name= "Open Port 514" dir=in action=allow protocol=UDP localport=514 |
+    netsh advfirewall firewall add rule name= "Open Port 514" dir=in action=allow protocol=UDP localport=514 
     ```
 
 8. You should get OK returned at the command line.
